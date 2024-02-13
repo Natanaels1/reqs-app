@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { TypeOptions, toast } from 'react-toastify';
-import base64 from 'base-64';
 
 type Toastfy = {
     content: string; 
@@ -55,9 +54,9 @@ export default function useHome() {
 
     function handleBase64() {
         const credentials = `${inputUsernameBasicAuth}:${inputPasswordBasicAuth}`;
-        const base64Credentials = base64.encode(credentials);
+        const encodedCredentials = btoa(credentials);
         
-        return `Basic ${base64Credentials}`;
+        return `Basic ${encodedCredentials}`;
     }
 
     async function handleRequest() {
