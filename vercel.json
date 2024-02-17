@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "public/**", "use": "@vercel/static" },
+      { "src": "api/**", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "handle": "filesystem" }
+    ],
+    "functions": { "api/**/*.js": { "runtime": "nodejs12" } },
+    "build": {
+      "cmd": "yarn build",
+      "env": {
+        "CI": "true"
+      }
+    }
+  }
+  
